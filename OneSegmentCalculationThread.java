@@ -5,6 +5,7 @@ import java.util.function.DoubleFunction;
  */
 public class OneSegmentCalculationThread extends Thread {
     int a,b,n,i;
+    double var1,var2;
     double sum = 0;
     DoubleFunction<Double> doubleFunction = new DoubleFunction<Double>() {
         @Override
@@ -17,10 +18,14 @@ public class OneSegmentCalculationThread extends Thread {
         this.b = b;
         this.n = n;
         this.i = i;
+        var1 = doubleFunction.apply(a + i);
+        var2 =  doubleFunction.apply(a + i + 1);
+
+
         start();
     }
 
     public void run(){
-        sum = (doubleFunction.apply(a + i) + doubleFunction.apply(a + i + 1))/2 * (a+i+i - a+i);
+        sum = (var1 + var2)/2 * (a+i+i - a+i);
     }
 }

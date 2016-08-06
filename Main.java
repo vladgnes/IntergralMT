@@ -16,5 +16,6 @@ public class Main {
             oneSegmentCalculationThreads[i] = new OneSegmentCalculationThread(a,b,n,i);//(doubleFunction.apply(a + i) + doubleFunction.apply(a + i + 1))/2 * (a+i+i - a+i);
             result += oneSegmentCalculationThreads[i].sum;
         }
+        System.out.println(result);
     }
 }
